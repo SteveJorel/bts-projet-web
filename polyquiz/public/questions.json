@@ -1,0 +1,12 @@
+[
+  { "id": 1, "categorie": "F1", "libelle": "Qui a remporté le championnat F1 2023 ?", "options": ["Lewis Hamilton", "Max Verstappen", "Fernando Alonso", "Charles Leclerc"], "bonne_reponse": "Max Verstappen" },
+  { "id": 2, "categorie": "F1", "libelle": "Quelle écurie a dominé la saison F1 2023 ?", "options": ["Ferrari", "Mercedes", "Red Bull", "McLaren"], "bonne_reponse": "Red Bull" },
+  { "id": 3, "categorie": "MotoGP", "libelle": "Qui est champion MotoGP 2023 ?", "options": ["Marc Marquez", "Fabio Quartararo", "Francesco Bagnaia", "Jorge Martin"], "bonne_reponse": "Francesco Bagnaia" },
+  { "id": 4, "categorie": "MotoGP", "libelle": "Sur quelle moto roule Bagnaia ?", "options": ["Honda", "Yamaha", "Ducati", "Suzuki"], "bonne_reponse": "Ducati" },
+  { "id": 5, "categorie": "NBA", "libelle": "Qui a remporté le titre NBA 2023 ?", "options": ["Lakers", "Celtics", "Nuggets", "Warriors"], "bonne_reponse": "Nuggets" },
+  { "id": 6, "categorie": "NBA", "libelle": "Qui est MVP NBA 2023 ?", "options": ["LeBron James", "Nikola Jokic", "Giannis Antetokounmpo", "Luka Doncic"], "bonne_reponse": "Nikola Jokic" },
+  { "id": 7, "categorie": "Manga", "libelle": "Quel est l'auteur de Naruto ?", "options": ["Eiichiro Oda", "Masashi Kishimoto", "Akira Toriyama", "Hajime Isayama"], "bonne_reponse": "Masashi Kishimoto" },
+  { "id": 8, "categorie": "Manga", "libelle": "Dans quel manga trouve-on le Fruit du Démon ?", "options": ["Bleach", "Dragon Ball", "One Piece", "Hunter x Hunter"], "bonne_reponse": "One Piece" },
+  { "id": 9, "categorie": "Anime", "libelle": "Quel studio a produit Demon Slayer ?", "options": ["Bones", "Ufotable", "Mappa", "Wit Studio"], "bonne_reponse": "Ufotable" },
+  { "id": 10, "categorie": "Anime", "libelle": "Quel est le vrai nom de Light Yagami dans Death Note ?", "options": ["L Lawliet", "Light Yagami", "Near", "Mello"], "bonne_reponse": "Light Yagami" }
+]

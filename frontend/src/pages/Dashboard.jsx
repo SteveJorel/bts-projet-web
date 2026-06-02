@@ -1,24 +1,86 @@
 import { useState } from 'react'
 import TaskCard from '../components/TaskCard'
 import TaskForm from '../components/TaskForm'
-import useLocalStorage from '../hooks/useLocalStorage'
+import axios from 'axios'
 
-const initialTasks = [
-  { id: 1, titre: "Conception de l'ontologie", description: 'Rédiger les axiomes de base du domaine.', statut: 'A faire' },
-  { id: 2, titre: 'Développement API', description: 'Créer les endpoints REST du backend.', statut: 'En cours' },
-  { id: 3, titre: 'Tests unitaires', description: 'Couvrir les fonctions critiques.', statut: 'Termine' },
-]
+
 
 function Dashboard({ tasks, setTasks }) {
   const [editTask, setEditTask] = useState(null)
 
-  const afaire  = tasks.filter(t => t.statut === 'A faire').length
-  const encours = tasks.filter(t => t.statut === 'En cours').length
-  const termine = tasks.filter(t => t.statut === 'Termine').length
+  const afaire = tasks.filter(t => t.status === 'A faire').length
+  const encours = tasks.filter(t => t.status === 'En cours').length
+  const termine = tasks.filter(t => t.status === 'Termine').length
 
-  function handleAdd(t)    { setTasks([...tasks, t]) }
-  function handleDelete(id){ setTasks(tasks.filter(t => t.id !== id)) }
-  function handleUpdate(t) { setTasks(tasks.map(x => x.id === t.id ? t : x)); setEditTask(null) }
+  async function handleAdd(t) {
+
+  try {
+
+    const response = await axios.post(
+      'http://localhost:5000/api/tasks',
+      {
+        title: t.titre,
+        description: t.description,
+        status: t.statut
+      }
+    )
+
+    setTasks([...tasks, response.data])
+
+  } catch (error) {
+
+    console.error(error)
+
+  }
+
+}
+  async function handleDelete(id) {
+
+  try {
+
+    await axios.delete(
+      `http://localhost:5000/api/tasks/${id}`
+    )
+
+    setTasks(
+      tasks.filter(task => task._id !== id)
+    )
+
+  } catch (error) {
+
+    console.error(error)
+
+  }
+
+}
+  async function handleUpdate(t) {
+
+  try {
+
+    const response = await axios.put(
+      `http://localhost:5000/api/tasks/${t._id}`,
+      {
+        status: t.statut
+      }
+    )
+
+    setTasks(
+      tasks.map(task =>
+        task._id === t._id
+          ? response.data
+          : task
+      )
+    )
+
+    setEditTask(null)
+
+  } catch (error) {
+
+    console.error(error)
+
+  }
+
+}
 
   const statCard = (num, label, color) => (
     <div style={{ background:'rgba(0,255,100,0.05)', border:'1px solid #00ff6622', borderRadius:'10px', padding:'12px', textAlign:'center' }}>
